@@ -396,6 +396,7 @@ class AdminPanel:
             ],
             states={
                 ADMIN_PANEL: [
+                    CallbackQueryHandler(self.admin_panel, pattern='^admin_stats$'),
                     CallbackQueryHandler(self.handle_ban_user, pattern='^ban_user$'),
                     CallbackQueryHandler(self.handle_unban_user, pattern='^unban_user$'),
                     CallbackQueryHandler(self.handle_modify_balance, pattern='^modify_balance$'),

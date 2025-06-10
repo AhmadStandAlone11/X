@@ -882,14 +882,18 @@ class Database:
 
     async def ping(self):
         """Check if the database connection is still active."""
+        conn = None
         try:
             # Example: Execute a simple query
-            await self.db.execute("SELECT 1")
+            await conn.execute("SELECT 1")
             return True
         except Exception:
             # Log the error
             logging.exception("Database connection failed")
             return False
+        finally:
+            if conn:
+                conn.close()
 
 # Create a single instance
 _db = Database()

@@ -577,6 +577,8 @@ def get_product_management_handler() -> ConversationHandler:
                 lambda u, c: manage_category(u, c), 
                 pattern=r"^manage_(games|apps)$"
             ),
+            CallbackQueryHandler(edit_prices_menu, pattern="^cancel$"),
+            CallbackQueryHandler(edit_prices_menu, pattern="^back_to_main$"),
         ],
         name="product_management",
         persistent=True
